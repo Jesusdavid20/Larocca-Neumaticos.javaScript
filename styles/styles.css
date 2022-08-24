@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mainTittle {
+    max-width: 800px;
+    margin: 15px auto;
+    background-color: #ededed;
+    box-shadow: 2px 4px #888888;
+    text-align: center;
+}
