@@ -16,14 +16,14 @@ if (seleccion1 <= 4) {
     var respuesta = prompt(`Usted a seleccionado ${seleccion1} neumaticos y tiene un valor total de ${resultado1}, Desea seguir comprando?`)
 
     //El usuario ingresa que cantidad del neumatico 2 quiere comprar:
-    if (respuesta = "si") {
+    if (respuesta == "si") {
         var seleccion2 = parseInt(prompt(`el neumatico ${neumatico2Nombre} tiene un precio de ${neumatico2} que cantidad desea?`)); 
         if (seleccion2 <= 4) {
             var resultado2 = neumatico2 * seleccion2;
             var respuesta2 = prompt(`Usted a seleccionado ${seleccion2} neumaticos y tiene un valor total de ${resultado2}, desea seguir comprando?`);
 
             //El usuario ingresa que cantidad del neumatico 3 quiere comprar:
-            if (respuesta2 = "si") {
+            if (respuesta2 == "si") {
                 var seleccion3 = parseInt(prompt(`el neumatico ${neumatico3Nombre} tiene un precio de ${neumatico3} que cantidad desea?`)); 
                 if (seleccion3 <= 4) {
                     var resultado3 = neumatico3 * seleccion3;
