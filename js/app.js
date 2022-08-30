@@ -17,14 +17,14 @@ if (seleccion1 <= 4) {
 
     //El usuario ingresa que cantidad del neumatico 2 quiere comprar:
     if (respuesta == "si") {
-        var seleccion2 = parseInt(prompt(`el neumatico ${neumatico2Nombre} tiene un precio de ${neumatico2} que cantidad desea?`)); 
+        var seleccion2 = parseInt(prompt(`el neumatico ${neumatico2Nombre} tiene un precio de ${neumatico2} que cantidad desea?`));
         if (seleccion2 <= 4) {
             var resultado2 = neumatico2 * seleccion2;
             var respuesta2 = prompt(`Usted a seleccionado ${seleccion2} neumaticos y tiene un valor total de ${resultado2}, desea seguir comprando?`);
 
             //El usuario ingresa que cantidad del neumatico 3 quiere comprar:
             if (respuesta2 == "si") {
-                var seleccion3 = parseInt(prompt(`el neumatico ${neumatico3Nombre} tiene un precio de ${neumatico3} que cantidad desea?`)); 
+                var seleccion3 = parseInt(prompt(`el neumatico ${neumatico3Nombre} tiene un precio de ${neumatico3} que cantidad desea?`));
                 if (seleccion3 <= 4) {
                     var resultado3 = neumatico3 * seleccion3;
                     alert(`Usted a seleccionado ${seleccion3} neumaticos y tiene un valor total de ${resultado3}`)
@@ -38,12 +38,16 @@ if (seleccion1 <= 4) {
                 }
             } else {
                 alert("gracias por su tiempo...")
+
+                calculoDelTotal()
             }
         } else if (seleccion2 > 4) {
             alert("No tenemos esa cantidad en stock, por favor intente de nuevo")
         }
     } else {
         alert("gracias por su tiempo...")
+        
+        calculoDelTotal()
     }
 } else if (seleccion1 > 4) {
     alert("No tenemos esa cantidad en stock, por favor intente de nuevo")
@@ -51,6 +55,25 @@ if (seleccion1 <= 4) {
 
 function calculoDelTotal() {
     let sumaTotal = resultado1 + resultado2 + resultado3;
-    let seleccionTotal = Number( seleccion1 + seleccion3 + seleccion2) ;
-    alert(`Usted a comprado ${seleccionTotal} neumaticos en distintas presentaciones y el total a pagar es ${sumaTotal}`)
+    let seleccionTotal = Number(seleccion1 + seleccion3 + seleccion2);
+    alert(`Usted a comprado ${seleccionTotal} neumaticos en distintas presentaciones y el total a pagar es ${sumaTotal}`);
+
+    let calculoDeCuotas = prompt("como desea realizar el pago, puede hacerlo de contado o en 10, 12 y 18 cuotas?")
+    switch (calculoDeCuotas) {
+        case "10":
+            let precioEn10 = sumaTotal / 10;
+            alert(`El precio total le queda en 10 cuotas de ${precioEn10}`);
+            break;
+        case "12":
+            let precioEn12 = sumaTotal / 12;
+            alert(`El precio total le queda en 12 cuotas de ${precioEn12}`);
+            break;
+        case "18":
+            let precioEn18 = sumaTotal / 18;
+            alert(`El precio total le queda en 18 cuotas de ${precioEn18}`);
+            break;
+        default:
+            alert(`Su monto a pagar es ${sumaTotal} pesos en un solo pago`);
+            break;
+    }
 }
