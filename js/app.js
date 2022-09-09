@@ -5,9 +5,6 @@ let neumatico1 = {
     stock : 4  
 }
 
-// let neumatico1 = 14000;
-// let stockNeumatico1 =
-// let neumatico1Nombre = "195/55R16 Bridgestone EP150";
 
 let neumatico2 = {
     nombre : "205/55R16 Bridgestone Turanza ER300",
@@ -15,40 +12,42 @@ let neumatico2 = {
     stock : 8
 }
 
-// let neumatico2 = 18000;
-// let neumatico2Nombre = "205/55R16 Bridgestone Turanza ER300";
-
 let neumatico3 = {
     nombre : "195/65R15 Firestone FH900",
     precio : 25000,
     stock : 5
 }
 
-// let neumatico3 = 21000;
-// let neumatico3Nombre = "195/65R15 Firestone FH900";
+
+let carritoDelUsuario = []
 
 //El usuario ingresa que cantidad del neumatico 1 quiere comprar:
 
-let seleccion1 = parseInt(prompt(`el neumatico ${neumatico1.nombre} tiene un precio de ${neumatico1.precio} que cantidad desea?`));
+var seleccion1 = parseInt(prompt(`el neumatico ${neumatico1.nombre} tiene un precio de ${neumatico1.precio} que cantidad desea?`));
 if (seleccion1 <= neumatico1.stock) {
-    let resultado1 = neumatico1.precio * seleccion1;
-    let respuesta = prompt(`Usted a seleccionado ${seleccion1} neumaticos y tiene un valor total de ${resultado1}, Desea seguir comprando?`)
+    var resultado1 = neumatico1.precio * seleccion1;
+    var respuesta = prompt(`Usted a seleccionado ${seleccion1} neumaticos y tiene un valor total de ${resultado1}, Desea seguir comprando?`)
 
     //El usuario ingresa que cantidad del neumatico 2 quiere comprar:
     if (respuesta == "si") {
-        let seleccion2 = parseInt(prompt(`el neumatico ${neumatico2.nombre} tiene un precio de ${neumatico2.precio} que cantidad desea?`));
+        var seleccion2 = parseInt(prompt(`el neumatico ${neumatico2.nombre} tiene un precio de ${neumatico2.precio} que cantidad desea?`));
         if (seleccion2 <= neumatico2.stock) {
-            let resultado2 = neumatico2.precio * seleccion2;
-            let respuesta2 = prompt(`Usted a seleccionado ${seleccion2} neumaticos y tiene un valor total de ${resultado2}, desea seguir comprando?`);
+            var resultado2 = neumatico2.precio * seleccion2;
+            var respuesta2 = prompt(`Usted a seleccionado ${seleccion2} neumaticos y tiene un valor total de ${resultado2}, desea seguir comprando?`);
 
             //El usuario ingresa que cantidad del neumatico 3 quiere comprar:
             if (respuesta2 == "si") {
-                let seleccion3 = parseInt(prompt(`el neumatico ${neumatico3.nombre} tiene un precio de ${neumatico3.precio} que cantidad desea?`));
+                var seleccion3 = parseInt(prompt(`el neumatico ${neumatico3.nombre} tiene un precio de ${neumatico3.precio} que cantidad desea?`));
                 if (seleccion3 <= neumatico3.stock) {
-                    let resultado3 = neumatico3.precio * seleccion3;
+                    var resultado3 = neumatico3.precio * seleccion3;
                     alert(`Usted a seleccionado ${seleccion3} neumaticos y tiene un valor total de ${resultado3}`)
 
+                    cargarAlCarrito()
+
                     calculoDelTotal()
+
+                    usandoFilter()
+
                 } else if (seleccion3 > neumatico3.stock) {
                     alert("No tenemos esa cantidad en stock, por favor intente de nuevo");
 
@@ -71,6 +70,38 @@ if (seleccion1 <= neumatico1.stock) {
 } else if (seleccion1 > neumatico1.stock) {
     alert("No tenemos esa cantidad en stock, por favor intente de nuevo")
 }
+
+function cargarAlCarrito (){
+    carritoDelUsuario.push(`CARRITO: \n ${neumatico1.nombre} x ${seleccion1} \n`);
+    carritoDelUsuario.push(`${neumatico2.nombre} x ${seleccion2} \n `);
+    carritoDelUsuario.push(`${neumatico3.nombre} x ${seleccion3}`)
+    alert(carritoDelUsuario)
+}
+
+var ingresoNumeros = [];
+
+function usandoFilter(){
+    alert("Para concluir ingrese 4 numeros al azar:")
+    for (i = 1; i <= 4; i++){
+        var numeros = prompt("ingrese un numero");
+        ingresoNumeros.push(`\n${numeros}`);
+    }
+    
+    var eleccion = prompt(`\nSus números escogidos son ${ingresoNumeros}. Quieres filtrar los números pares o impares?`)
+    
+    if (eleccion === "pares" || eleccion === "par" || eleccion === "Pares" || eleccion === "Par" ){
+        const resultado = ingresoNumeros.filter(value => value % 2 ===0);
+        alert(resultado)
+    }else if (eleccion === "impares" || eleccion === "impar" || eleccion === "Impares" || eleccion === "Impar" ){
+        const resultado = ingresoNumeros.filter(value => value % 2 != 0);
+        alert(resultado)
+    }else {
+        alert("Seleccion incorrecta")
+    }
+
+}
+
+// usandoFilter()
 
 function calculoDelTotal() {
     let sumaTotal = resultado1 + resultado2 + resultado3;
