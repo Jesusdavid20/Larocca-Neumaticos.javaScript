@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    list-style-type: none;
+    list-style: none;
 }
 
 .mainTittle {
@@ -11,3 +13,42 @@
     box-shadow: 2px 4px #888888;
     text-align: center;
 }
+
+header .mainMenu ul{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    background-color: #1f1f24;
+    justify-content: space-evenly;
+    max-width: 1200px;
+}
+
+header .mainMenu ul li:hover {
+    color: rgb(215, 236, 27);
+}
+
+header .mainMenu ul li {
+    color: white;
+    padding: 10px;
+}
+
+
+.wrapLeft {
+    padding: 20px 0px 0px 20px;
+    border-right: 1px solid black;
+    max-width: 300px;
+}
+
+.wrapLeft .searchBar input {
+    margin: 10px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.wrapLeft .secondMenu li {
+    padding: 10px;
+}
+
+.wrapLeft .secondMenu li:hover {
+    background-color: rgb(215, 236, 27);
+} 

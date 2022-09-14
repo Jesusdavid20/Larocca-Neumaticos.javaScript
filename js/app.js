@@ -1,4 +1,4 @@
-
+/*
 let neumatico1 = {
     nombre : "195/55R16 Bridgestone EP150",
     precio : 14000,
@@ -41,7 +41,7 @@ if (seleccion1 <= neumatico1.stock) {
                 if (seleccion3 <= neumatico3.stock) {
                     var resultado3 = neumatico3.precio * seleccion3;
                     alert(`Usted a seleccionado ${seleccion3} neumaticos y tiene un valor total de ${resultado3}`)
-
+                    
                     cargarAlCarrito()
 
                     calculoDelTotal()
@@ -118,12 +118,15 @@ function calculoDelTotal() {
             let precioEn12 = sumaTotal / 12;
             alert(`El precio total le queda en 12 cuotas de ${precioEn12}`);
             break;
-        case "18":
+            case "18":
             let precioEn18 = sumaTotal / 18;
             alert(`El precio total le queda en 18 cuotas de ${precioEn18}`);
             break;
-        default:
-            alert(`Su monto a pagar es ${sumaTotal} pesos en un solo pago`);
+            default:
+                alert(`Su monto a pagar es ${sumaTotal} pesos en un solo pago`);
             break;
     }
 }
+*/
+ let tipoNeumatico = document.querySelector(`#type`)
+ console.log(tipoNeumatico)
