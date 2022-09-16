@@ -20,6 +20,7 @@ header .mainMenu ul{
     flex-direction: row;
     background-color: #1f1f24;
     justify-content: space-evenly;
+    align-items: center;
     max-width: 1200px;
 }
 

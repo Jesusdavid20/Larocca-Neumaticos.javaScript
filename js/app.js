@@ -137,7 +137,9 @@ let stockNeumaticos = [
     {id: 5,marca: "Firestone", modelo:"CV 5000", medida:"195/75R16", tipo: "camioneta", descripcion: "", cantidad: 10, precio: 40000, displonible: true, img: `./assets/imagenVacia.jpg`}, 
 ]
 
- const listaProductos = document.getElementsByClassName("wrapProducts")
+let carrito =[]
+
+ const listaProductos = document.querySelector(".wrapProducts")
 
  stockNeumaticos.forEach((neumatico) =>{
     const div = document.createElement(`div`)
@@ -148,5 +150,16 @@ let stockNeumaticos = [
     <p>Precio:$ ${neumatico.precio}</p>
     <button id="agregar${neumatico.id}" class= "agregarCarrito"> Agregar</button>
     `
-    listaProductos.appenChild(div)
- })
+    listaProductos.appendChild(div)
+
+    const botonCarrito = document.querySelector(`#agregar${neumatico.id}`)
+    botonCarrito.addEventListener(`click`, () =>{
+        agregarAlCarrito(neumatico.id)
+    } )
+})
+ 
+const agregarAlCarrito = (neumaticoID) => {
+    const item = stockNeumaticos.find((neumatico) => neumatico.id === neumaticoID)
+    carrito.push(item)
+    console.log(carrito)
+}
