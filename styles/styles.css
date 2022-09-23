@@ -96,6 +96,7 @@ footer .mainWrap{
     background-color: #1f1f24;
     display: flex;
     flex-direction: row;
+    padding: 10px;
 }
 
 footer .mainWrap .logoFooter {
