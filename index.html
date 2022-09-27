@@ -27,6 +27,7 @@
                 <div class="wrapCarrito">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carritoCompras">
                         <i class="bi bi-cart4"><span id="contadorCarrito"> (0)</span></i>
+                    </button>
                     </div>
                 </div>
             </ul>
@@ -46,10 +47,10 @@
                     <div id="contenidoCarrito" class="alert alert-success">
 
                         <!-- Aca se va a inyectar el código mediante el innerHTML de JavaScript -->
-
+                        
                     </div>
                 </div>
-                <p>Precio total: $</p>
+                <p class="productPrice">Precio total:<span id="totalPrice"> 0 </span></p>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-primary">Continuar</button>
@@ -79,7 +80,7 @@
             <div class="wrapProducts">
 
                 <!-- Aca se inyecta con JavaScript todo el Stock del Array -->
-
+                
             </div>
         </div>
     </div>
