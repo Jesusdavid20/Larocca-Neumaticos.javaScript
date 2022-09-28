@@ -30,7 +30,7 @@ if(localStorage.getItem("carrito")){
     const div = document.createElement("div")
     div.classList.add("neumatico")
     div.innerHTML = `
-    <img src="${neumatico.img}" alt="" >
+    <img src="${neumatico.img}" alt="Neumatico-${neumatico.id}" >
     <h3> ${neumatico.marca} ${neumatico.modelo}</h3>
     <h3> ${neumatico.medida}</h3>
     <p>Precio:$ ${neumatico.precio}</p>
@@ -39,7 +39,7 @@ if(localStorage.getItem("carrito")){
     listaProductos.appendChild(div)
 
     const botonCarrito = document.querySelector(`#agregar${neumatico.id}`)
-    botonCarrito.addEventListener("click", () =>{
+    botonCarrito.addEventListener("click", () => {
         agregarAlCarrito(neumatico.id)
     } )
 })
@@ -62,7 +62,7 @@ const agregarAlCarrito = (neumaticoID) => {
     actualizarCarrito()
 }
 
-const eliminarItmen = (neumaticoID) =>{
+const eliminarItmen = (neumaticoID) => {
     const item = carrito.find((neumatico) => neumatico.id === neumaticoID)
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
@@ -73,7 +73,7 @@ const actualizarCarrito = () => {
     contenidoCarrito.innerHTML = ""
 
     carrito.forEach((item) => {
-        const div = document.createElement(`div`)
+        const div = document.createElement("div")
         div.classList.add(`itemCarrito`)
         div.innerHTML = `
         <p>${item.marca} ${item.modelo} - ${item.medida}</p>
