@@ -1,13 +1,11 @@
 let stockNeumaticos = [
-    {id: 1,marca: "Bridgestone", modelo:"EP150", medida:"195/55R16", tipo: "auto", descripcion: "", cantidad: 1,stock: 4, precio: 14000,  displonible: true, img: `./assets/imagenVacia.jpg`},
-    {id: 2,marca: "Bridgestone", modelo:"Turanza ER300", medida:"205/55R16", tipo: "auto", descripcion: "", cantidad: 1,stock: 8, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg`},
-    {id: 3,marca: "Firestone", modelo:"FH900", medida:"195/65R15", tipo: "auto", descripcion: "", cantidad: 1,stock: 2, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg`},
-    {id: 4,marca: "Bridgestone", modelo:"H/T 684", medida:"265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1,stock: 6, precio: 45000, displonible: true, img: `./assets/imagenVacia.jpg`},
-    {id: 5,marca: "Firestone", modelo:"CV 5000", medida:"195/75R16", tipo: "camioneta", descripcion: "", cantidad: 1,stock: 10, precio: 40000, displonible: true, img: `./assets/imagenVacia.jpg`},
-    {id: 6,marca: "Bridgestone", modelo:"M/T 674", medida:"265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1,stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg`}, 
+    { id: 1, marca: "Bridgestone", modelo: "EP150", medida: "195/55R16", tipo: "auto", descripcion: "", cantidad: 1, stock: 4, precio: 14000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 2, marca: "Bridgestone", modelo: "Turanza ER300", medida: "205/55R16", tipo: "auto", descripcion: "", cantidad: 1, stock: 8, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 3, marca: "Firestone", modelo: "FH900", medida: "195/65R15", tipo: "auto", descripcion: "", cantidad: 1, stock: 2, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 4, marca: "Bridgestone", modelo: "H/T 684", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 6, precio: 45000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 5, marca: "Firestone", modelo: "CV 5000", medida: "195/75R16", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 10, precio: 40000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 6, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
 ]
-
-// import {stockNeumaticos} from `./stock`
 
 const contenidoCarrito = document.querySelector("#contenidoCarrito")
 
@@ -17,16 +15,22 @@ const contadorCarrito = document.querySelector("#contadorCarrito")
 
 const totalPriceCart = document.querySelector("#totalPrice")
 
-const carrito =[]
+const botonPrueba = document.querySelector("#prueba")
+
+const carrito = []
 
 document.addEventListener("DOMContentLoaded", () => {
-if(localStorage.getItem("carrito")){
-    carrito = JSON.parse(localStorage.getItem("carrito"))
-    actualizarCarrito()
-}
+    if (localStorage.getItem("carrito")) {
+        carrito = JSON.parse(localStorage.getItem("carrito"))
+        actualizarCarrito()
+    }
+})
+console.log(botonPrueba)
+botonPrueba.addEventListener("click" , () => {
+    swal("Hola")
 })
 
- stockNeumaticos.forEach((neumatico) => {
+stockNeumaticos.forEach((neumatico) => {
     const div = document.createElement("div")
     div.classList.add("neumatico")
     div.innerHTML = `
@@ -40,20 +44,23 @@ if(localStorage.getItem("carrito")){
 
     const botonCarrito = document.querySelector(`#agregar${neumatico.id}`)
     botonCarrito.addEventListener("click", () => {
+        swal("Añadiste al carrito", {
+            buttons: ["Cerrar" , "Esta bien"],
+        }) 
         agregarAlCarrito(neumatico.id)
-    } )
+    })
 })
- 
+
 const agregarAlCarrito = (neumaticoID) => {
     const noRepeat = carrito.some(item => item.id === neumaticoID)
 
-    if(noRepeat){
+    if (noRepeat) {
         const item = carrito.map(item => {
-            if(item.id === neumaticoID){
+            if (item.id === neumaticoID) {
                 item.cantidad++
             }
         })
-    }else {      
+    } else {
         const item = stockNeumaticos.find((neumatico) => neumatico.id === neumaticoID)
         carrito.push(item)
         console.log(carrito)
@@ -87,5 +94,5 @@ const actualizarCarrito = () => {
     })
 
     contadorCarrito.innerText = carrito.length
-    totalPriceCart.innerText = carrito. reduce((accumulated, item) => accumulated + item.precio, 0)
+    totalPriceCart.innerText = carrito.reduce((accumulated, item) => accumulated + item.precio, 0)
 }
