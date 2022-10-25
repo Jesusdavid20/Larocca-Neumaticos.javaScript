@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "brand": "Bridgestone",
+        "model": "EP150",
+        "size": "195/55R16",
+        "type": "car",
+        "description": "",
+        "qty": 1,
+        "stock": 4,
+        "price": 14000,
+        "available": true,
+        "img": "./assets/emptyImage.jpg"
+    },
+    {
+        "id": 2, 
+        "brand": "Bridgestone", 
+        "model": "Turanza ER300", 
+        "size": "205/55R16", 
+        "type": "car", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 8, 
+        "price": 21000, 
+        "available": true, 
+        "img": "./assets/emptyImage.jpg"
+    },
+    { 
+        "id": 3, 
+        "brand": "Firestone", 
+        "model": "FH900", 
+        "size": "195/65R15", 
+        "type": "car", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 2, 
+        "price": 21000, 
+        "available": true, 
+        "img": "./assets/emptyImage.jpg"
+    },
+    { 
+        "id": 4, 
+        "brand": "Bridgestone", 
+        "model": "H/T 684", 
+        "size": "265/65R17", 
+        "type": "van", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 6, 
+        "price": 45000, 
+        "available": true, 
+        "img": "./assets/emptyImage.jpg"
+    },
+    { 
+        "id": 5, 
+        "brand": "Firestone", 
+        "model": "CV 5000", 
+        "size": "195/75R16", 
+        "type": "van", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 10, 
+        "price": 40000, 
+        "available": true, 
+        "img": "./assets/emptyImage.jpg"
+    },
+    { 
+        "id": 6, 
+        "brand": "Bridgestone", 
+        "model": "M/T 674", 
+        "size": "265/65R17", 
+        "type": "van", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 12, 
+        "price": 75000, 
+        "available": true, 
+        "img": "./assets/emptyImage.jpg"
+    }
+]
