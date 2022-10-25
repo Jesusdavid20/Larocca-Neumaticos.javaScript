@@ -275,9 +275,9 @@ fetch(localApi)
         })
 
 
-        document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('cart')) {
-                cart = JSON.parse(localStorage.getItem('cart'))
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("cart")) {
+                cart = JSON.parse(localStorage.getItem("cart"))
                 refreshCart()
             }
         })
@@ -304,19 +304,20 @@ fetch(localApi)
             refreshCart()
         }
 
-        const deleteItemCart = (prodId) => {
-            const item = cart.find((prod) => prod.id === prodId)
-
-            const indice = cart.indexOf(item)
-
-            cart.splice(indice, 1)
-            refreshCart()
-        }
-
+        
         const refreshCart = () => {
-
-            insideTheCart.innerHTML = ""
             
+            insideTheCart.innerHTML = ""
+            const deleteItemCart = (prodId) => {
+                const item = cart.find((prod) => prod.id === prodId)
+    
+                const indice = cart.indexOf(item)
+    
+                cart.splice(indice, 1)
+                refreshCart()
+                console.log(deleteItemCart)
+            }
+
             cart.forEach((item) => {
                 const div = document.createElement("div")
                 div.classList.add(`itemCarrito`)
@@ -329,7 +330,7 @@ fetch(localApi)
 
                 insideTheCart.appendChild(div)
 
-                localStorage.setItem('cart', JSON.stringify(cart))
+                localStorage.setItem("cart", JSON.stringify(cart))
 
             })
 
