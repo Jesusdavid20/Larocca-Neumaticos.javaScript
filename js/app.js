@@ -1,98 +1,342 @@
+// // let stockTires = [
+// //     { id: 1, marca: "Bridgestone", modelo: "EP150", medida: "195/55R16", tipo: "auto", descripcion: "", cantidad: 1, stock: 4, precio: 14000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 2, marca: "Bridgestone", modelo: "Turanza ER300", medida: "205/55R16", tipo: "auto", descripcion: "", cantidad: 1, stock: 8, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 3, marca: "Firestone", modelo: "FH900", medida: "195/65R15", tipo: "auto", descripcion: "", cantidad: 1, stock: 2, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 4, marca: "Bridgestone", modelo: "H/T 684", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 6, precio: 45000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 5, marca: "Firestone", modelo: "CV 5000", medida: "195/75R16", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 10, precio: 40000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 6, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 7, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 8, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 9, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 10, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 11, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// //     { id: 12, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// // ]
 
-let neumatico1 = {
-    nombre : "195/55R16 Bridgestone EP150",
-    precio : 14000,
-    stock : 4  
-}
+// const cartContent = document.querySelector("#cartContent")
 
-// let neumatico1 = 14000;
-// let stockNeumatico1 =
-// let neumatico1Nombre = "195/55R16 Bridgestone EP150";
+// const productsList = document.querySelector(".wrapProducts")
 
-let neumatico2 = {
-    nombre : "205/55R16 Bridgestone Turanza ER300",
-    precio : 21000,
-    stock : 8
-}
+// const contadorCarrito = document.querySelector("#contadorCarrito")
 
-// let neumatico2 = 18000;
-// let neumatico2Nombre = "205/55R16 Bridgestone Turanza ER300";
+// const totalPriceCart = document.querySelector("#totalPrice")
 
-let neumatico3 = {
-    nombre : "195/65R15 Firestone FH900",
-    precio : 25000,
-    stock : 5
-}
+// const localApi = "../js/data.json";
 
-// let neumatico3 = 21000;
-// let neumatico3Nombre = "195/65R15 Firestone FH900";
 
-//El usuario ingresa que cantidad del neumatico 1 quiere comprar:
+// const cart = []
 
-let seleccion1 = parseInt(prompt(`el neumatico ${neumatico1.nombre} tiene un precio de ${neumatico1.precio} que cantidad desea?`));
-if (seleccion1 <= neumatico1.stock) {
-    let resultado1 = neumatico1.precio * seleccion1;
-    let respuesta = prompt(`Usted a seleccionado ${seleccion1} neumaticos y tiene un valor total de ${resultado1}, Desea seguir comprando?`)
+// document.addEventListener("DOMContentLoaded", () => {
+//     if (localStorage.getItem("cart")) {
+//         cart = JSON.parse(localStorage.getItem("cart"))
+//         updateCart()
+//     }
+// })
 
-    //El usuario ingresa que cantidad del neumatico 2 quiere comprar:
-    if (respuesta == "si") {
-        let seleccion2 = parseInt(prompt(`el neumatico ${neumatico2.nombre} tiene un precio de ${neumatico2.precio} que cantidad desea?`));
-        if (seleccion2 <= neumatico2.stock) {
-            let resultado2 = neumatico2.precio * seleccion2;
-            let respuesta2 = prompt(`Usted a seleccionado ${seleccion2} neumaticos y tiene un valor total de ${resultado2}, desea seguir comprando?`);
+// // async function callApi() {
+// //     const answers = await fetch(localApi)
+// //     const data = await answers.json()
+// //     console.log(data)
+// // }
 
-            //El usuario ingresa que cantidad del neumatico 3 quiere comprar:
-            if (respuesta2 == "si") {
-                let seleccion3 = parseInt(prompt(`el neumatico ${neumatico3.nombre} tiene un precio de ${neumatico3.precio} que cantidad desea?`));
-                if (seleccion3 <= neumatico3.stock) {
-                    let resultado3 = neumatico3.precio * seleccion3;
-                    alert(`Usted a seleccionado ${seleccion3} neumaticos y tiene un valor total de ${resultado3}`)
 
-                    calculoDelTotal()
-                } else if (seleccion3 > neumatico3.stock) {
-                    alert("No tenemos esa cantidad en stock, por favor intente de nuevo");
+// fetch(localApi)
+// .then(res => res.json())
+// .then(respuesta => {
+//     respuesta.forEach((neumatico) => {
+//         const div = document.createElement("div")
+//         div.classList.add("neumatico")
+//         div.innerHTML = `
+//         <img src="${neumatico.img}" alt="Neumatico-${neumatico.id}" >
+//         <h3> ${neumatico.marca} ${neumatico.modelo}</h3>
+//         <h3> ${neumatico.medida}</h3>
+//         <p>Precio:$ ${neumatico.precio}</p>
+//         <button id="agregar${neumatico.id}" class= "agregarCarrito">Agregar <i class="bi bi-cart-plus-fill"></i></button>
+//         `
+//         productsList.appendChild(div)
 
-                } else if (seleccion2 > neumatico2.stock) {
-                    alert("No tenemos esa cantidad en stock, por favor intente de nuevo")
-                }
-            } else {
-                alert("gracias por su tiempo...")
+//         const botonCarrito = document.querySelector(`#agregar${neumatico.id}`)
+//         botonCarrito.addEventListener("click", () => {
+//             swal("Añadiste al carrito", {
+//                 buttons: ["Cerrar", "Esta bien"],
+//             })
+//             addToCart(neumatico.id)
+//         })
+//     })
 
-                calculoDelTotal()
+// })
+// .catch(err => console.error(err));
+
+
+
+// const addToCart = (neumaticoID) => {
+//     const noRepeat = cart.some(item => item.id === neumaticoID)
+
+//     if (noRepeat) {
+//         const item = cart.map(item => {
+//             if (item.id === neumaticoID) {
+//                 item.cantidad++
+//             }
+//         })
+//     } else {
+//         const item = respuesta.find((neumatico) => neumatico.id === neumaticoID)
+//         cart.push(item)
+//         console.log(cart)
+//     }
+
+//     updateCart()
+// }
+
+// const eliminarItmen = (neumaticoID) => {
+//     const item = cart.find((neumatico) => neumatico.id === neumaticoID)
+//     const indice = cart.indexOf(item)
+//     cart.splice(indice, 1)
+//     updateCart()
+// }
+
+// const updateCart = () => {
+//     cartContent.innerHTML = ""
+
+//     cart.forEach((item) => {
+//         const div = document.createElement("div")
+//         div.classList.add(`itemCarrito`)
+//         div.innerHTML = `
+//         <p>${item.marca} ${item.modelo} - ${item.medida}</p>
+//         <p>${item.precio}</p>
+//         <p>Cantidad <span id="cantidad"></span> ${item.cantidad}</p>
+//         <button onclick ="eliminarItmen(${item.id})" class="botonEliminar"> <i class="bi bi-trash3"></i></button>
+//         `
+//         cartContent.appendChild(div)
+
+//         localStorage.setItem("cart", JSON.stringify(cart))
+//     })
+
+//     contadorCarrito.innerText = cart.length
+//     totalPriceCart.innerText = cart.reduce((accumulated, item) => accumulated + item.precio, 0)
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+// let stockNeumaticos = [
+//     { id: 1, marca: "Bridgestone", modelo: "EP150", medida: "195/55R16", tipo: "auto", descripcion: "", cantidad: 1, stock: 4, precio: 14000, displonible: true, img: `./assets/imagenVacia.jpg` },
+//     { id: 2, marca: "Bridgestone", modelo: "Turanza ER300", medida: "205/55R16", tipo: "auto", descripcion: "", cantidad: 1, stock: 8, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg` },
+//     { id: 3, marca: "Firestone", modelo: "FH900", medida: "195/65R15", tipo: "auto", descripcion: "", cantidad: 1, stock: 2, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg` },
+//     { id: 4, marca: "Bridgestone", modelo: "H/T 684", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 6, precio: 45000, displonible: true, img: `./assets/imagenVacia.jpg` },
+//     { id: 5, marca: "Firestone", modelo: "CV 5000", medida: "195/75R16", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 10, precio: 40000, displonible: true, img: `./assets/imagenVacia.jpg` },
+//     { id: 6, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+// ]
+
+// const contenidoCarrito = document.querySelector("#contenidoCarrito")
+
+// const listaProductos = document.querySelector(".wrapProducts")
+
+// const contadorCarrito = document.querySelector("#contadorCarrito")
+
+// const totalPriceCart = document.querySelector("#totalPrice")
+
+// const botonPrueba = document.querySelector("#prueba")
+
+// const carrito = []
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     if (localStorage.getItem("carrito")) {
+//         carrito = JSON.parse(localStorage.getItem("carrito"))
+//         actualizarCarrito()
+//     }
+// })
+// console.log(botonPrueba)
+// botonPrueba.addEventListener("click" , () => {
+//     swal("Hola")
+// })
+
+// stockNeumaticos.forEach((neumatico) => {
+//     const div = document.createElement("div")
+//     div.classList.add("neumatico")
+//     div.innerHTML = `
+//     <img src="${neumatico.img}" alt="Neumatico-${neumatico.id}" >
+//     <h3> ${neumatico.marca} ${neumatico.modelo}</h3>
+//     <h3> ${neumatico.medida}</h3>
+//     <p>Precio:$ ${neumatico.precio}</p>
+//     <button id="agregar${neumatico.id}" class= "agregarCarrito">Agregar <i class="bi bi-cart-plus-fill"></i></button>
+//     `
+//     listaProductos.appendChild(div)
+
+//     const botonCarrito = document.querySelector(`#agregar${neumatico.id}`)
+//     botonCarrito.addEventListener("click", () => {
+//         swal("Añadiste al carrito", {
+//             buttons: ["Cerrar" , "Esta bien"],
+//         }) 
+//         agregarAlCarrito(neumatico.id)
+//     })
+// })
+
+// const agregarAlCarrito = (neumaticoID) => {
+//     const noRepeat = carrito.some(item => item.id === neumaticoID)
+
+//     if (noRepeat) {
+//         const item = carrito.map(item => {
+//             if (item.id === neumaticoID) {
+//                 item.cantidad++
+//             }
+//         })
+//     } else {
+//         const item = stockNeumaticos.find((neumatico) => neumatico.id === neumaticoID)
+//         carrito.push(item)
+//         console.log(carrito)
+//     }
+
+//     actualizarCarrito()
+// }
+
+// const eliminarItmen = (neumaticoID) => {
+//     const item = carrito.find((neumatico) => neumatico.id === neumaticoID)
+//     const indice = carrito.indexOf(item)
+//     carrito.splice(indice, 1)
+//     actualizarCarrito()
+// }
+
+// const actualizarCarrito = () => {
+//     contenidoCarrito.innerHTML = ""
+
+//     carrito.forEach((item) => {
+//         const div = document.createElement("div")
+//         div.classList.add(`itemCarrito`)
+//         div.innerHTML = `
+//         <p>${item.marca} ${item.modelo} - ${item.medida}</p>
+//         <p>${item.precio}</p>
+//         <p>Cantidad <span id="cantidad"></span> ${item.cantidad}</p>
+//         <button onclick ="eliminarItmen(${item.id})" class="botonEliminar"> <i class="bi bi-trash3"></i></button>
+//         `
+//         contenidoCarrito.appendChild(div)
+
+//         localStorage.setItem("carrito", JSON.stringify(carrito))
+//     })
+
+//     contadorCarrito.innerText = carrito.length
+//     totalPriceCart.innerText = carrito.reduce((accumulated, item) => accumulated + item.precio, 0)
+// }
+
+let stockNeumaticos = [
+    { id: 1, marca: "Bridgestone", modelo: "EP150", medida: "195/55R16", tipo: "auto", descripcion: "", cantidad: 1, stock: 4, precio: 14000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 2, marca: "Bridgestone", modelo: "Turanza ER300", medida: "205/55R16", tipo: "auto", descripcion: "", cantidad: 1, stock: 8, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 3, marca: "Firestone", modelo: "FH900", medida: "195/65R15", tipo: "auto", descripcion: "", cantidad: 1, stock: 2, precio: 21000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 4, marca: "Bridgestone", modelo: "H/T 684", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 6, precio: 45000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 5, marca: "Firestone", modelo: "CV 5000", medida: "195/75R16", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 10, precio: 40000, displonible: true, img: `./assets/imagenVacia.jpg` },
+    { id: 6, marca: "Bridgestone", modelo: "M/T 674", medida: "265/65R17", tipo: "camioneta", descripcion: "", cantidad: 1, stock: 12, precio: 75000, displonible: true, img: `./assets/imagenVacia.jpg` },
+]
+
+const productsList = document.querySelector(".wrapProducts")
+
+const insideTheCart = document.querySelector("#cartContent")
+
+const emptyCart = document.querySelector('#emptyCart')
+
+const cartCounter = document.querySelector("#modalCounter")
+
+const accumulated = document.querySelector("#accumulated")
+
+const totalPrice = document.querySelector("#totalPrice")
+
+const localApi = "../js/data.json"
+
+let cart = []
+
+fetch(localApi)
+    .then(answer => answer.json())
+    .then(data => {
+        data.forEach((tyre) => {
+            const div = document.createElement("div")
+            div.classList.add("tyre")
+            div.innerHTML = `
+            <img src="${tyre.img}" alt="Neumatico-${tyre.id}" >
+            <h3> ${tyre.brand} ${tyre.model}</h3>
+            <h3> ${tyre.size}</h3>
+            <p>Precio:$ ${tyre.price}</p>
+            <button id="agregar${tyre.id}" class= "addToCart">Agregar <i class="bi bi-cart-plus-fill"></i></button>
+            `
+            productsList.appendChild(div)
+
+            const cartButton = document.querySelector(`#agregar${tyre.id}`)
+            cartButton.addEventListener("click", () => {
+                swal("Añadiste al carrito", {
+                    buttons: ["Cerrar", "Esta bien"],
+                })
+                addToCart(tyre.id)
+            })
+        })
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("cart")) {
+                cart = JSON.parse(localStorage.getItem("cart"))
+                refreshCart()
             }
-        } else if (seleccion2 > neumatico2.stock) {
-            alert("No tenemos esa cantidad en stock, por favor intente de nuevo")
+        })
+
+        emptyCart.addEventListener('click', () => {
+            cart.length = 0
+            refreshCart()
+        })
+
+        const addToCart = (prodId) => {
+
+            const exists = cart.some(prod => prod.id === prodId)
+
+            if (exists) {
+                const prod = cart.map(prod => {
+                    if (prod.id === prodId) {
+                        prod.qty++
+                    }
+                })
+            } else {
+                const item = data.find((prod) => prod.id === prodId)
+                cart.push(item)
+            }
+            refreshCart()
         }
-    } else {
-        alert("gracias por su tiempo...")
+
         
-        calculoDelTotal()
-    }
-} else if (seleccion1 > neumatico1.stock) {
-    alert("No tenemos esa cantidad en stock, por favor intente de nuevo")
-}
+        const refreshCart = () => {
+            
+            insideTheCart.innerHTML = ""
+            const deleteItemCart = (prodId) => {
+                const item = cart.find((prod) => prod.id === prodId)
+    
+                const indice = cart.indexOf(item)
+    
+                cart.splice(indice, 1)
+                refreshCart()
+                console.log(deleteItemCart)
+            }
 
-function calculoDelTotal() {
-    let sumaTotal = resultado1 + resultado2 + resultado3;
-    let seleccionTotal = Number(seleccion1 + seleccion3 + seleccion2);
-    alert(`Usted a comprado ${seleccionTotal} neumaticos en distintas presentaciones y el total a pagar es ${sumaTotal}`);
+            cart.forEach((item) => {
+                const div = document.createElement("div")
+                div.classList.add(`itemCarrito`)
+                div.innerHTML = `
+        <p>${item.brand} ${item.model} - ${item.size}</p>
+        <p>${item.price}</p>
+        <p>Cantidad <span id="cantidad"></span> ${item.qty}</p>
+        <button onclick="deleteItemCart(${item.id}" class="deleteButton"> <i class="bi bi-trash3-fill"></i></button>
+        `
 
-    let calculoDeCuotas = prompt("como desea realizar el pago, puede hacerlo de contado o en 10, 12 y 18 cuotas?")
-    switch (calculoDeCuotas) {
-        case "10":
-            let precioEn10 = sumaTotal / 10;
-            alert(`El precio total le queda en 10 cuotas de ${precioEn10}`);
-            break;
-        case "12":
-            let precioEn12 = sumaTotal / 12;
-            alert(`El precio total le queda en 12 cuotas de ${precioEn12}`);
-            break;
-        case "18":
-            let precioEn18 = sumaTotal / 18;
-            alert(`El precio total le queda en 18 cuotas de ${precioEn18}`);
-            break;
-        default:
-            alert(`Su monto a pagar es ${sumaTotal} pesos en un solo pago`);
-            break;
-    }
-}
+                insideTheCart.appendChild(div)
+
+                localStorage.setItem("cart", JSON.stringify(cart))
+
+            })
+
+            cartCounter.innerText = cart.length
+
+            console.log(cart)
+            totalPrice.innerText = cart.reduce((acc, prod) => acc + prod.qty * prod.price, 0)
+        }
+    })

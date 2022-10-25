@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "brand": "Bridgestone",
+        "model": "EP150",
+        "size": "195/55R16",
+        "type": "car",
+        "description": "",
+        "qty": 1,
+        "stock": 4,
+        "price": 14000,
+        "available": true,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_814360-MLA49170899680_022022-O.webp"
+    },
+    {
+        "id": 2, 
+        "brand": "Bridgestone", 
+        "model": "Turanza ER300", 
+        "size": "205/55R16", 
+        "type": "car", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 8, 
+        "price": 21000, 
+        "available": true, 
+        "img": "https://http2.mlstatic.com/D_NQ_NP_813146-MLA31584636322_072019-O.jpg"
+    },
+    { 
+        "id": 3, 
+        "brand": "Firestone", 
+        "model": "FH900", 
+        "size": "195/65R15", 
+        "type": "car", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 2, 
+        "price": 21000, 
+        "available": true, 
+        "img": "https://http2.mlstatic.com/D_NQ_NP_963060-MLA31119804375_062019-O.jpg"
+    },
+    { 
+        "id": 4, 
+        "brand": "Bridgestone", 
+        "model": "H/T 684", 
+        "size": "265/65R17", 
+        "type": "van", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 6, 
+        "price": 45000, 
+        "available": true, 
+        "img": "https://http2.mlstatic.com/D_NQ_NP_933025-MLA31007788116_062019-O.jpg"
+    },
+    { 
+        "id": 5, 
+        "brand": "Firestone", 
+        "model": "CV 5000", 
+        "size": "195/75R16", 
+        "type": "van", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 10, 
+        "price": 40000, 
+        "available": true, 
+        "img": "https://http2.mlstatic.com/D_NQ_NP_739804-MLA49546852036_042022-O.webp"
+    },
+    { 
+        "id": 6, 
+        "brand": "Bridgestone", 
+        "model": "M/T 674", 
+        "size": "265/65R17", 
+        "type": "van", 
+        "description": "", 
+        "qty": 1, 
+        "stock": 12, 
+        "price": 75000, 
+        "available": true, 
+        "img": "https://http2.mlstatic.com/D_NQ_NP_857617-MLA41570113006_042020-O.webp"
+    }
+]
